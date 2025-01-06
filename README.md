@@ -4,7 +4,7 @@ Shala is a community that is dedicated to personal and spiritual growth of its m
 
 ### Our Vision
 
-Our vision is to create a community of like-minded individuals who are interested in exploring the depths of their own consciousness and discovering the true nature of reality.
+Our vision is to foster a community of like-minded individuals who are interested in exploring the depths of their own consciousness and discovering the true nature of reality.
 
 ### Our Mission
 
