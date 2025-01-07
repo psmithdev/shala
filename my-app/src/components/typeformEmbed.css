@@ -1,0 +1,8 @@
+.typeform-container {
+  height: 100vh; /* Full viewport height */
+  width: 100%; /* Full width of the parent container */
+  max-height: 600px; /* Optional: set a maximum height */
+  max-width: 800px; /* Optional: set a maximum width */
+  margin: 0 auto; /* Center it horizontally */
+  border: none; /* Remove any default borders */
+}
