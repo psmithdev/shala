@@ -4,7 +4,7 @@ import TypeformEmbed from "./components/TypeformEmbed";
 const App = () => {
   return (
     <div className="App">
-      <h1>Welcome to The Shala</h1>
+      <h1>Chakra CheckIn</h1>
       <TypeformEmbed />
     </div>
   );
