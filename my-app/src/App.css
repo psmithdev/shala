@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .App-logo {
@@ -35,4 +36,43 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+header {
+  background-color: #4c2a85;
+  color: white;
+  padding: 20px;
+}
+
+.typeform-container {
+  margin: 20px;
+}
+
+.results-container {
+  margin: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #4c2a85;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.chakra-results {
+  margin-top: 20px;
+}
+
+.chakra-bar {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.chakra-bar span {
+  flex: 1;
+  text-align: right;
+  margin-right: 10px;
 }
