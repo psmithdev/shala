@@ -5,6 +5,10 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import { Link } from "react-router-dom";
+import Header from "./components/Header";
+import Results from "./components/Results";
+import Footer from "./components/Footer";
+import "./App.css";
 
 const App = () => {
   return (
@@ -22,8 +26,12 @@ const App = () => {
         </Routes>
       </div>
       <div className="App">
-        <h1>Chakra CheckIn</h1>
-        <TypeformEmbed />
+        <Header />
+        <main>
+          <TypeformEmbed />
+          <Results />
+        </main>
+        <Footer />
       </div>
     </Router>
   );
