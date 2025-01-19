@@ -12,6 +12,7 @@ import "./App.css";
 import axios from "axios";
 import ChakraRadarChart from "./components/ChakraRadarChart";
 import calculateChakraResults from "./utils/calculateChakraResults";
+import TallyformEmbed from "./components/TallyformEmbed";
 
 const App = () => {
   const [chakraResults, setChakraResults] = useState({
@@ -25,8 +26,7 @@ const App = () => {
   });
 
   const FORM_ID = "WqXKx61Y";
-  const API_KEY =
-    "X";
+  const API_KEY = "X";
 
   useEffect(() => {
     const fetchResponses = async () => {
@@ -69,6 +69,7 @@ const App = () => {
         <Header />
         <main>
           <TypeformEmbed />
+          <TallyformEmbed />
           <Results />
         </main>
         <Footer />
