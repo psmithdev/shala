@@ -26,7 +26,7 @@ const App = () => {
 
   const FORM_ID = "WqXKx61Y";
   const API_KEY =
-    "tfp_7RkGu5NKGiMKMWVYkohBc8cKLEyqyto2xfnoFqZk7oK1_enrJmohoKmkL";
+    "X";
 
   useEffect(() => {
     const fetchResponses = async () => {
