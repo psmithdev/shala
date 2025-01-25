@@ -16,13 +16,13 @@ import TallyformEmbed from "./components/TallyformEmbed";
 
 const App = () => {
   const [chakraResults, setChakraResults] = useState({
-    root: 0,
-    sacral: 0,
-    solar: 0,
-    heart: 0,
-    throat: 0,
-    thirdEye: 0,
-    crown: 0,
+    root: 10,
+    sacral: 5,
+    solar: 5,
+    heart: 5,
+    throat: 5,
+    thirdEye: 5,
+    crown: 5,
   });
 
   const FORM_ID = "WqXKx61Y";
@@ -70,6 +70,7 @@ const App = () => {
         <main>
           <TypeformEmbed />
           <TallyformEmbed />
+          <ChakraRadarChart data={chakraResults} />
           <Results />
         </main>
         <Footer />
