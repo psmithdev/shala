@@ -16,7 +16,7 @@ import TallyformEmbed from "./components/TallyformEmbed";
 
 const App = () => {
   const [chakraResults, setChakraResults] = useState({
-    root: 10,
+    root: 8,
     sacral: 5,
     solar: 5,
     heart: 5,

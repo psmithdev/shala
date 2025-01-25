@@ -79,23 +79,40 @@ const ChakraRadarChart = ({ data = {} }) => {
   const options = {
     responsive: true,
     maintainAspectRatio: false,
+    animations: { duration: 1500, easing: "easeInOutQuart" },
     scales: {
       r: {
         beginAtZero: true,
         ticks: { backdropColor: "rgba(255, 255, 255, 0.7)" },
         grid: { color: "#E0E0E0" },
         angleLines: { color: "#B0B0B0" },
+        font: { size: 20, family: "Georgia, serif", weight: "bold" },
       },
     },
     plugins: {
       legend: {
-        labels: { font: { size: 14, family: "Arial, sans-serif" } },
+        labels: {
+          font: { size: 14, family: "Georgia, serif", style: "italic" },
+          color: "#FF5733",
+        },
+      },
+      tooltip: {
+        callbacks: {
+          label: function (tooltipItem) {
+            const label = tooltipItem.label || "";
+            const value = tooltipItem.raw || 0;
+            return `${label}: ${value}/10`;
+          },
+        },
+        backgroundColor: "rgba(0, 0, 0, 0.8)",
+        titleColor: "#FFFFFF",
+        bodyColor: "#FFEB3B",
       },
     },
   };
 
   return (
-    <div style={{ width: "500px", height: "500px" }}>
+    <div style={{ width: "600px", height: "600px" }}>
       <Radar data={radarChartData} options={options} />
     </div>
   );
