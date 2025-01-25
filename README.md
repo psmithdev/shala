@@ -21,21 +21,3 @@ If you are interested in joining our community, please check out our [events cal
 ### Contact Us
 
 If you have any questions or would like more information, please feel free to [contact us](contact.md). We are always happy to hear from you!
-
-<<<<<<< HEAD
-helllo my name is parker
-thedklfjadsklsdfjklfdsajklfadsjklfdsajklfdaskjlfdaskjlfadskjfadskjlafsdkjlafsdjkl hi parker
-weh air e ipan rker are we are in
-
-lets `print` this
-
-````python
-
-  print("hello world")
-  ```
-
-  ```pytho
-````
-=======
-Hello Albert
->>>>>>> b6f81a18fb6de5dcd8c26491f7704cefd6c6926e
