@@ -13,6 +13,7 @@ import axios from "axios";
 import ChakraRadarChart from "./components/ChakraRadarChart";
 import calculateChakraResults from "./utils/calculateChakraResults";
 import TallyformEmbed from "./components/TallyformEmbed";
+import heartChakraIMG from "./assets/images/free_throat_chakra.png";
 
 const App = () => {
   const [chakraResults, setChakraResults] = useState({
@@ -72,6 +73,9 @@ const App = () => {
           <TallyformEmbed />
           <ChakraRadarChart data={chakraResults} />
           <Results />
+          <div>
+            <img src={heartChakraIMG} alt="Description" />
+          </div>
         </main>
         <Footer />
       </div>
