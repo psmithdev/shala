@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Evaluation from "./pages/Evaluation";
 import { Link } from "react-router-dom";
 import Header from "./components/Header";
 import Results from "./components/Results";
@@ -13,16 +14,17 @@ import axios from "axios";
 import ChakraRadarChart from "./components/ChakraRadarChart";
 import calculateChakraResults from "./utils/calculateChakraResults";
 import TallyformEmbed from "./components/TallyformEmbed";
+import heartChakraIMG from "./assets/images/free_throat_chakra.png";
 
 const App = () => {
   const [chakraResults, setChakraResults] = useState({
-    root: 0,
-    sacral: 0,
-    solar: 0,
-    heart: 0,
-    throat: 0,
-    thirdEye: 0,
-    crown: 0,
+    root: 8,
+    sacral: 5,
+    solar: 5,
+    heart: 5,
+    throat: 5,
+    thirdEye: 5,
+    crown: 5,
   });
 
   const FORM_ID = "WqXKx61Y";
@@ -58,11 +60,13 @@ const App = () => {
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
           <Link to="/contact">Contact</Link>
+          <Link path="/evaluation">Evaluation</Link>
         </nav>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/evaluation" element={<Evaluation />} />
         </Routes>
       </div>
       <div className="App">
@@ -70,7 +74,11 @@ const App = () => {
         <main>
           <TypeformEmbed />
           <TallyformEmbed />
+          <ChakraRadarChart data={chakraResults} />
           <Results />
+          <div>
+            <img src={heartChakraIMG} alt="Description" />
+          </div>
         </main>
         <Footer />
       </div>
