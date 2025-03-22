@@ -83,6 +83,29 @@ const App = () => {
     });
   };
 
+  // Listen for messages from Tallyform iframe
+  useEffect(() => {
+    const handleMessage = (event) => {
+      // Check if the message is from your Tallyform (adjust origin as needed)
+      // This is just an example - you'll need to adapt based on actual messages from Tally
+      if (event.origin === "https://tally.so") {
+        try {
+          const data = JSON.parse(event.data);
+          if (data.type === "form:submit") {
+            // Form is submitted, so all questions must be answered
+            setAllQuestionsAnswered(true);
+          }
+        } catch (e) {
+          // Not a JSON message or unexpected format
+          console.log("Error parsing message from Tally", e);
+        }
+      }
+    };
+
+    window.addEventListener("message", handleMessage);
+    return () => window.removeEventListener("message", handleMessage);
+  }, []);
+
   return (
     <Router>
       <div>
