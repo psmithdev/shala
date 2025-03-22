@@ -83,17 +83,27 @@ const App = () => {
     });
   };
 
+  // define variable
+  const FormSubmitted = false;
+
   // Listen for messages from Tallyform iframe
   useEffect(() => {
     const handleMessage = (event) => {
-      // Check if the message is from your Tallyform (adjust origin as needed)
-      // This is just an example - you'll need to adapt based on actual messages from Tally
+      // Log messages to help debug the event format
+      console.log("Received message:", event.data);
+
+      // Check if the message is from Tally
       if (event.origin === "https://tally.so") {
         try {
           const data = JSON.parse(event.data);
-          if (data.type === "form:submit") {
-            // Form is submitted, so all questions must be answered
-            setAllQuestionsAnswered(true);
+          // Check for form submission events
+          // Note: The exact event type might vary - check console logs to confirm
+          if (
+            data.type === "form:submit" ||
+            data.type === "tally:form:submitted"
+          ) {
+            console.log("Form submitted successfully!");
+            FormSubmitted(true);
           }
         } catch (e) {
           // Not a JSON message or unexpected format
@@ -103,6 +113,8 @@ const App = () => {
     };
 
     window.addEventListener("message", handleMessage);
+
+    // Clean up the event listener when component unmounts
     return () => window.removeEventListener("message", handleMessage);
   }, []);
 
@@ -147,7 +159,8 @@ const App = () => {
         <Header />
         <main>
           <TallyformEmbed />
-          <ChakraResultsButton fetchResults={fetchResults} />
+          {/* Only show the results button when the form has been submitted */}
+          {FormSubmitted && <ChakraResultsButton fetchResults={fetchResults} />}
           {chartData && <ChakraPolarChart chartData={chartData} />}
           <div>
             <img
