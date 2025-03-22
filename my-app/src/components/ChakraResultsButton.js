@@ -7,7 +7,7 @@ export default function ChakraResultsButton() {
   const fetchResults = async () => {
     try {
       const response = await fetch(
-        "https://sheets.googleapis.com/v4/spreadsheets/1ImL5x4_pVZpNWK2NDF4P7x3FCzD64JxNSnqBUZ2oFLg/values/Sheet2?key=AIzaSyAkGr-sTn6S9ZGZbuJbzEAPbxi1xkrr5pQ"
+        "https://sheets.googleapis.com/v4/spreadsheets/1ImL5x4_pVZpNWK2NDF4P7x3FCzD64JxNSnqBUZ2oFLg/values/Sheet2?key=deletethiskey"
       );
 
       if (!response.ok) {
