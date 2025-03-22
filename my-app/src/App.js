@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import TypeformEmbed from "./components/TypeformEmbed";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -7,16 +6,13 @@ import Contact from "./pages/Contact";
 import Evaluation from "./pages/Evaluation";
 import { Link } from "react-router-dom";
 import Header from "./components/Header";
-import Results from "./components/Results";
 import Footer from "./components/Footer";
 import "./App.css";
-import axios from "axios";
-import ChakraRadarChart from "./components/ChakraRadarChart";
-import calculateChakraResults from "./utils/calculateChakraResults";
 import TallyformEmbed from "./components/TallyformEmbed";
 import heartChakraIMG from "./assets/images/free_throat_chakra.png";
 import ChakraResultsButton from "./components/ChakraResultsButton";
-import ChakraChart from "./components/ChakraChart";
+import ChakraPolarChart from "./components/ChakraPolarChart";
+import { NavLink } from "react-router-dom";
 
 const SHEET_ID = process.env.REACT_APP_GOOGLE_SHEET_ID;
 const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
@@ -33,28 +29,6 @@ const App = () => {
   });
 
   const [chartData, setChartData] = useState(null); // Moved here
-
-  const FORM_ID = "WqXKx61Y";
-  const API_KEY = "X";
-
-  // const fetchResponses = async () => {
-  //   try {
-  //     const response = await axios.get(
-  //       `https://api.typeform.com/forms/${FORM_ID}/responses`,
-  //       {
-  //         headers: {
-  //           Authorization: `Bearer ${API_KEY}`,
-  //         },
-  //       }
-  //     );
-
-  //     const responses = response.data.items;
-  //     const chakraData = calculateChakraResults(responses);
-  //     setChakraResults(chakraData);
-  //   } catch (error) {
-  //     console.error("Error fetching Typeform responses:", error);
-  //   }
-  // };
 
   const fetchResults = async () => {
     const range = "Sheet2!A1:Z"; // Adjust as needed
@@ -109,19 +83,36 @@ const App = () => {
     });
   };
 
-  // useEffect(() => {
-  //   fetchResponses();
-  // }, []);
-
   return (
     <Router>
       <div>
         <nav>
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-          <Link to="/contact">Contact</Link>
-          <Link to="/evaluation">Evaluation</Link>
+          <NavLink
+            to="/"
+            className={({ isActive }) => (isActive ? "active-link" : "")}
+          >
+            Home
+          </NavLink>
+          <NavLink
+            to="/about"
+            className={({ isActive }) => (isActive ? "active-link" : "")}
+          >
+            About
+          </NavLink>
+          <NavLink
+            to="/contact"
+            className={({ isActive }) => (isActive ? "active-link" : "")}
+          >
+            Contact
+          </NavLink>
+          <NavLink
+            to="/evaluation"
+            className={({ isActive }) => (isActive ? "active-link" : "")}
+          >
+            Evaluation
+          </NavLink>
         </nav>
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -132,14 +123,15 @@ const App = () => {
       <div className="App">
         <Header />
         <main>
-          <TypeformEmbed />
           <TallyformEmbed />
-          <ChakraRadarChart data={chakraResults} />
-          <Results />
           <ChakraResultsButton fetchResults={fetchResults} />
-          {chartData && <ChakraChart chartData={chartData} />}
+          {chartData && <ChakraPolarChart chartData={chartData} />}
           <div>
-            <img src={heartChakraIMG} alt="Description" />
+            <img
+              src={heartChakraIMG}
+              alt="Description"
+              style={{ width: "200px", height: "auto" }}
+            />
           </div>
         </main>
         <Footer />

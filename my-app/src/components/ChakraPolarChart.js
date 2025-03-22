@@ -1,7 +1,7 @@
 import React from "react";
 import { PolarArea } from "react-chartjs-2";
 
-const ChakraChart = ({ chartData }) => {
+const ChakraPolarChart = ({ chartData }) => {
   return (
     <div className="w-96 h-96">
       <PolarArea data={chartData} />
@@ -9,4 +9,4 @@ const ChakraChart = ({ chartData }) => {
   );
 };
 
-export default ChakraChart;
+export default ChakraPolarChart;
