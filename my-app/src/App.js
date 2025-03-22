@@ -109,9 +109,9 @@ const App = () => {
     });
   };
 
-  useEffect(() => {
-    fetchResponses();
-  }, []);
+  // useEffect(() => {
+  //   fetchResponses();
+  // }, []);
 
   return (
     <Router>
